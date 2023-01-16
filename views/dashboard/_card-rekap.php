@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use app\models\Buku;    
+use app\models\Book;    
 use app\models\Kategori;
 use app\models\Penerbit;
 use app\models\Penulis;
@@ -26,12 +26,12 @@ use yii\widgets\LinkPager;
                     <div class="inner">
                         <p>Jumlah Buku</p>
 
-                        <h3><?= Yii::$app->formatter->asInteger(Buku::getCount()); ?></h3>
+                        <h3><?= Yii::$app->formatter->asInteger(Book::getCount()); ?></h3>
                     </div>
                     <div class="icon">
                         <i class="fa fa-book"></i>
                     </div>
-                    <a href="<?=Url::to(['buku/index']);?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="<?=Url::to(['book/index']);?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 

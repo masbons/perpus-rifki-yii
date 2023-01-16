@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\Book;
 
 /**
  * This is the model class for table "penerbit".
@@ -63,5 +64,13 @@ class Penerbit extends \yii\db\ActiveRecord
     public function getBooks()
     {
         return $this->hasMany(Book::class, ['id_penerbit' => 'id']);
+    }
+    public static function getCount()
+    {
+        return static::find()->count();
+    } 
+    public function getPenerbitCount()
+    {
+        return $this->hasMany(Book::className(),['id_penerbit' => 'id'])->count();
     }
 }

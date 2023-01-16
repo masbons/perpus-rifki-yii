@@ -3,6 +3,11 @@
 namespace app\models;
 
 use Yii;
+use app\models\Penulis;
+use app\models\Penerbit;
+use app\models\Kategori;
+use kartik\mpdf\Pdf;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "book".
@@ -81,4 +86,8 @@ class Book extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Kategori::class, ['id' => 'id_kategori']);
     }
+    public static function getCount()
+    {
+        return static::find()->count();
+    }  
 }

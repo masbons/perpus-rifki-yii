@@ -88,7 +88,7 @@ use app\models\Penulis;
                         'title' => ['text' => 'Penulis Buku'],
                         'exporting' => ['enabled' => true],
                         'xAxis' => [
-                            'categories' => Penulis::getNama(),
+                            'categories' => Penulis::getPenulis(),
                         ],
                         'yAxis' => [
                                 'title' => ['text' => 'Jumlah Buku'],

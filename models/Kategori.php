@@ -50,4 +50,12 @@ class Kategori extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Book::class, ['id_kategori' => 'id']);
     }
+    public static function getCount()
+    {
+        return static::find()->count();
+    } 
+    public function getKategoriCount()
+    {
+        return $this->hasMany(Book::className(),['id_kategori' => 'id'])->count();
+    }
 }

@@ -74,3 +74,4 @@ class BookSearch extends Book
         return $dataProvider;
     }
 }
+

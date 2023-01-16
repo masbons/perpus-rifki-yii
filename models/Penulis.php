@@ -64,4 +64,12 @@ class Penulis extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Book::class, ['id_penulis' => 'id']);
     }
+    public static function getCount()
+    {
+        return static::find()->count();
+    } 
+    public function getPenulisCount()
+    {
+        return $this->hasMany(Book::className(),['id_penulis' => 'id'])->count();
+    }
 }

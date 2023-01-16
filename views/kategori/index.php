@@ -1,20 +1,23 @@
 <?php
 
+use app\models\Penulis;
 use app\models\Kategori;
+use app\models\Buku;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use kartik\mpdf\Pdf;
 /** @var yii\web\View $this */
-/** @var app\models\KategoriSearch $searchModel */
+/** @var app\models\PenulisSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Kategoris';
+$this->title = 'Kategori';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="kategori-index">
-   <section class="content">
+<div class="Kategori-index">
+     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -27,7 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
               <div class="card-body">
 
     <p>
-        <?= Html::a('Create Kategori', ['create'], ['class' => 'btn btn-success']) ?>
+     <?= Html::a('Create Book', ['create'], ['class' => 'btn btn-success']) ?>
+     <?= Html::a('<i class="fa fa-print"></i> Export Excel Buku', Yii::$app->request->url.'&export=1', ['class' => 'btn btn-warning btn-flat']) ?>
+           <!-- <?= Html::a('<i class="fa fa-print"></i> Export Excel Daftar Buku', ['/export/index'], ['class' => 'btn btn-success btn-flat']) ?> -->
+    <?= Html::a('<i class="fa fa-print"></i> Export Pdf Daftar Buku', ['report'], ['class' => 'btn btn-danger btn-flat']) ?> 
     </p>
 
     <?php Pjax::begin(); ?>
@@ -39,8 +45,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'kategori',
-           
+            [
+                'header' => 'Kategori',
+                'attribute' => 'kategori',
+                'headerOptions' => ['class'=>'text-center'],
+            ],
+            [
+                'class' =>'yii\grid\DataColumn',
+                'attribute' => 'Jumlah Buku',
+                'value' =>'KategoriCount',
+            ],
+            
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Kategori $model, $key, $index, $column) {

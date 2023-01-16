@@ -18,7 +18,7 @@ class PenulisSearch extends Penulis
     {
         return [
             [['id'], 'integer'],
-            [['nama', 'alamat', 'telepon', 'email', 'created_at', 'updated_at'], 'safe'],
+            [['penulis', 'alamat', 'telepon', 'email', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -63,7 +63,7 @@ class PenulisSearch extends Penulis
             'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'nama', $this->nama])
+        $query->andFilterWhere(['like', 'penulis', $this->penulis])
             ->andFilterWhere(['like', 'alamat', $this->alamat])
             ->andFilterWhere(['like', 'telepon', $this->telepon])
             ->andFilterWhere(['like', 'email', $this->email]);

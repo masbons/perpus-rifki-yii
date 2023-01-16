@@ -27,7 +27,7 @@ use yii\widgets\LinkPager;
                     <div class="inner">
                         <p>Jumlah Buku</p>
 
-                        <h3><?= Yii::$app->formatter->asInteger(Buku::getCount()); ?></h3>
+                        <h3><?= Yii::$app->formatter->asInteger(Book::getCount()); ?></h3>
                     </div>
                     <div class="icon">
                         <i class="fa fa-book"></i>
